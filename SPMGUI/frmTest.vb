@@ -12,19 +12,6 @@ Public Class frmTest
         Dim objJCEmodel As New JCEModel()
 
 
-        'With objJCEmodel
-        '    .Id = testObj.GetMaxJCEId() + 1
-        '    .OpportunityId = 5
-        '    .JCETitleName = "Test JCE from form"
-        '    .RevesionNum = 2
-        '    .CreatedDate = Date.Now()
-        '    .TotalCost = 125.12
-        '    .Strategy = "Strategy 1 2 3"
-        'End With
-        'testObj.JCEInserNewRow(objJCEmodel)
-        'Date
-        testObj.FillJCEModel(objJCEmodel, 5)
-        MsgBox(objJCEmodel.OpportunityId.ToString)
 
 
 

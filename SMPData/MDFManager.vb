@@ -61,14 +61,14 @@ Namespace SMPData
         End Property
 
 
-        Public ReadOnly Property GetConnection() As SqlConnection
+        Public ReadOnly Property GetConnection() As SqlConnection Implements IDataBaseManager.GetConnection
             Get
                 Return Me.DBConnection
             End Get
         End Property
 
 
-        Public Function OpenConnection() As FunRet
+        Public Function OpenConnection() As FunRet Implements IDataBaseManager.OpenConnection
             Try
                 DBConnection.Open()
                 If DBConnection.State = ConnectionState.Open Then
@@ -83,7 +83,7 @@ Namespace SMPData
         End Function
 
 
-        Public Function CloseConnection() As FunRet
+        Public Function CloseConnection() As FunRet Implements IDataBaseManager.CloseConnection
             Try
                 DBConnection.Close()
                 If DBConnection.State = ConnectionState.Closed Then
@@ -106,78 +106,12 @@ Namespace SMPData
             Return Result
         End Function
 
-        Public Function SaveProject() As FunRet Implements IDataBaseManager.SaveProject
-            ' TODO - Add logic
-            Throw New NotImplementedException()
-        End Function
-
         Public Function Backup() As FunRet Implements IDataBaseManager.Backup
             Throw New NotImplementedException()
         End Function
 
-        Public Function CoptO(FolderLocation As String) As FunRet Implements IDataBaseManager.CoptO
+        Public Function CopyTo(ByVal FolderLocation As String) As FunRet Implements IDataBaseManager.CopyTo
             Throw New NotImplementedException()
-        End Function
-
-        Public Function SelectAllRecords(spName As String) As DataTable Implements IDataBaseManager.SelectAllRecords
-            Dim myTable As New DataTable()
-
-            Try
-                Me.DBCommand.CommandText = spName
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
-        End Function
-
-        Public Function SelectById(spName As String, Id As Integer) As DataTable Implements IDataBaseManager.SelectById
-            Dim myTable As New DataTable()
-
-            Try
-                With Me.DBCommand
-                    .CommandText = spName
-                    .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
-                End With
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
-        End Function
-
-        Public Function GetMaxId(spName As String) As Integer
-            Dim maxId As Integer = 0
-
-            Try
-                Me.DBCommand.CommandText = spName
-                Me.DBCommand.Parameters.Add("@maxID", SqlDbType.Int)
-                Me.DBCommand.Parameters("@maxID").Direction = ParameterDirection.Output
-                Me.OpenConnection()
-                Me.DBCommand.ExecuteNonQuery()
-                maxId = Me.DBCommand.Parameters("@maxID").Value
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return maxId
         End Function
 
         Protected Sub ClearCommand()

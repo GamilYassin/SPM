@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataBaseManager.vb" />
+    <Compile Include="ITableHandler.vb" />
     <Compile Include="JCEHandler.vb" />
     <Compile Include="MDFManager.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
