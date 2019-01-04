@@ -16,85 +16,27 @@ Namespace SMPData
 
 
         Public Function SelectAllRecords() As DataTable Implements ITableHandler.SelectAllRecords
-            Dim myTable As New DataTable()
-
-            Try
-                Me.DBCommand.CommandText = "spJCETableSelectAll"
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            Me.DBCommand.CommandText = "spJCETableSelectAll"
+            Return MyBase.GetAllRecords()
         End Function
 
         Public Function SelectById(Id As Integer) As DataTable Implements ITableHandler.SelectById
-            Dim myTable As New DataTable()
-
-            Try
-                With Me.DBCommand
-                    .CommandText = "spJCETableSelectById"
-                    .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
-                End With
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            With Me.DBCommand
+                .Parameters.Clear()
+                .CommandText = "spJCETableSelectById"
+                .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
+            End With
+            Return MyBase.FilterData()
         End Function
 
         Public Function GetMaxId() As Integer Implements ITableHandler.GetMaxId
-            Dim maxId As Integer = 0
-
-            Try
-                Me.DBCommand.CommandText = "spJCETableMaxId"
-                Me.DBCommand.Parameters.Add("@maxID", SqlDbType.Int)
-                Me.DBCommand.Parameters("@maxID").Direction = ParameterDirection.Output
-                Me.OpenConnection()
-                Me.DBCommand.ExecuteNonQuery()
-                maxId = Me.DBCommand.Parameters("@maxID").Value
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return maxId
+            Me.DBCommand.CommandText = "spJCETableMaxId"
+            Return MyBase.GetMaxIdNumber()
         End Function
 
         Public Function GetRowsCount() As Integer Implements ITableHandler.GetRowsCount
-            Dim RowsCount As Integer = 0
-
-            Try
-                Me.DBCommand.Parameters.Clear()
-                Me.DBCommand.CommandText = "[spJCETableRowsCount]"
-                Me.DBCommand.Parameters.Add("@RowsCount", SqlDbType.Int)
-                Me.DBCommand.Parameters("@RowsCount").Direction = ParameterDirection.Output
-                Me.OpenConnection()
-                Me.DBCommand.ExecuteNonQuery()
-                RowsCount = Me.DBCommand.Parameters("@RowsCount").Value
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return RowsCount
+            Me.DBCommand.CommandText = "[spJCETableRowsCount]"
+            Return MyBase.GetRecordsCount()
         End Function
 
         Public Sub FillModel(Id As Integer) Implements ITableHandler.FillModel
@@ -143,35 +85,18 @@ Namespace SMPData
         End Sub
 
         Public Sub UpdateOneRow(RowId As Integer, obJceModel As JCEModel)
-            Try
-                ModelMapIn(obJceModel)
-                Me.DBCommand.CommandText = "spJCETableUpdateRow"
-                Me.OpenConnection()
-                DBCommand.ExecuteNonQuery()
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
+            ModelMapIn(obJceModel)
+            Me.DBCommand.CommandText = "spJCETableUpdateRow"
+                MyBase.UpdateRow()
         End Sub
 
         Public Sub DeleteOneRow(RowId As Integer) Implements ITableHandler.DeleteOneRow
-            Try
-                With Me.DBCommand
-                    .CommandText = "spJCETableDeleteRow"
-                    .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = RowId
-                    Me.OpenConnection()
-                    .ExecuteNonQuery()
-                    Me.CloseConnection()
-                End With
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
+            With Me.DBCommand
+                .CommandText = "spJCETableDeleteRow"
+                .Parameters.Clear()
+                .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = RowId
+            End With
+            MyBase.DeleteRow()
         End Sub
 
         Public Sub ModelMapIn() Implements ITableHandler.ModelMapIn
@@ -221,25 +146,12 @@ Namespace SMPData
 
 
         Public Function SelectJCEByOppId(OppId As Integer) As DataTable
-            Dim myTable As New DataTable()
-
-            Try
-                With Me.DBCommand
-                    .CommandText = "spJCETableSelectByOppId"
-                    .Parameters.Add("@OppId", SqlDbType.Int, ParameterDirection.Input).Value = OppId
-                End With
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            With Me.DBCommand
+                .CommandText = "spJCETableSelectByOppId"
+                .Parameters.Clear()
+                .Parameters.Add("@OppId", SqlDbType.Int, ParameterDirection.Input).Value = OppId
+            End With
+            Return MyBase.FilterData()
         End Function
 
     End Class

@@ -89,6 +89,7 @@
     <Compile Include="Enums.vb" />
     <Compile Include="Logger\DataLoger.vb" />
     <Compile Include="Models\CustomersModel.vb" />
+    <Compile Include="Models\IModel.vb" />
     <Compile Include="Models\JCEModel.vb" />
     <Compile Include="Models\MilestonesModel.vb" />
     <Compile Include="Models\OpportunitiesModel.vb" />

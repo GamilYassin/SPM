@@ -16,85 +16,27 @@ Namespace SMPData
 
 
         Public Function SelectAllRecords() As DataTable Implements ITableHandler.SelectAllRecords
-            Dim myTable As New DataTable()
-
-            Try
-                Me.DBCommand.CommandText = "spCustomersTableSelectAll"
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            Me.DBCommand.CommandText = "spCustomersTableSelectAll"
+            Return MyBase.GetAllRecords()
         End Function
 
         Public Function SelectById(Id As Integer) As DataTable Implements ITableHandler.SelectById
-            Dim myTable As New DataTable()
-
-            Try
-                With Me.DBCommand
-                    .CommandText = "spCustomersTableSelectById"
-                    .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
-                End With
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            With Me.DBCommand
+                .Parameters.Clear()
+                .CommandText = "spCustomersTableSelectById"
+                .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
+            End With
+            Return MyBase.FilterData()
         End Function
 
         Public Function GetMaxId() As Integer Implements ITableHandler.GetMaxId
-            Dim maxId As Integer = 0
-
-            Try
-                Me.DBCommand.CommandText = "spCustomersTableMaxId"
-                Me.DBCommand.Parameters.Add("@maxID", SqlDbType.Int)
-                Me.DBCommand.Parameters("@maxID").Direction = ParameterDirection.Output
-                Me.OpenConnection()
-                Me.DBCommand.ExecuteNonQuery()
-                maxId = Me.DBCommand.Parameters("@maxID").Value
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return maxId
+            Me.DBCommand.CommandText = "spCustomersTableMaxId"
+            Return MyBase.GetMaxIdNumber()
         End Function
 
         Public Function GetRowsCount() As Integer Implements ITableHandler.GetRowsCount
-            Dim RowsCount As Integer = 0
-
-            Try
-                Me.DBCommand.Parameters.Clear()
-                Me.DBCommand.CommandText = "[spCustomersTableRowsCount]"
-                Me.DBCommand.Parameters.Add("@RowsCount", SqlDbType.Int)
-                Me.DBCommand.Parameters("@RowsCount").Direction = ParameterDirection.Output
-                Me.OpenConnection()
-                Me.DBCommand.ExecuteNonQuery()
-                RowsCount = Me.DBCommand.Parameters("@RowsCount").Value
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return RowsCount
+            Me.DBCommand.CommandText = "[spCustomersTableRowsCount]"
+            Return MyBase.GetRecordsCount()
         End Function
 
         Public Sub FillModel(Id As Integer) Implements ITableHandler.FillModel
@@ -103,9 +45,10 @@ Namespace SMPData
 
         Public Sub FillModel(ByRef objCustomersModel As CustomersModel, Id As Integer)
             Dim DBDataReader As SqlDataReader
-            ClearCommand()
+
             Try
                 Me.DBCommand.CommandText = "spCustomersTableSelectById"
+                Me.DBCommand.Parameters.Clear()
                 Me.DBCommand.Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = Id
                 Me.OpenConnection()
                 DBDataReader = DBCommand.ExecuteReader()
@@ -143,35 +86,18 @@ Namespace SMPData
         End Sub
 
         Public Sub UpdateOneRow(RowId As Integer, obCustomersModel As CustomersModel)
-            Try
-                ModelMapIn(obCustomersModel)
-                Me.DBCommand.CommandText = "spCustomersTableUpdateRow"
-                Me.OpenConnection()
-                DBCommand.ExecuteNonQuery()
-                Me.CloseConnection()
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
+            ModelMapIn(obCustomersModel)
+            Me.DBCommand.CommandText = "spCustomersTableUpdateRow"
+            MyBase.UpdateRow()
         End Sub
 
         Public Sub DeleteOneRow(RowId As Integer) Implements ITableHandler.DeleteOneRow
-            Try
-                With Me.DBCommand
-                    .CommandText = "spCustomersTableDeleteRow"
-                    .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = RowId
-                    Me.OpenConnection()
-                    .ExecuteNonQuery()
-                    Me.CloseConnection()
-                End With
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
+            With Me.DBCommand
+                .CommandText = "spCustomersTableDeleteRow"
+                .Parameters.Clear()
+                .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = RowId
+            End With
+            MyBase.DeleteRow()
         End Sub
 
         Public Sub ModelMapIn() Implements ITableHandler.ModelMapIn
@@ -225,26 +151,14 @@ Namespace SMPData
 
 
         Public Function SelectCustomerByPlantId(PlantId As Integer) As DataTable
-            Dim myTable As New DataTable()
-
-            Try
-                With Me.DBCommand
-                    .CommandText = "spCustomersTableSelectByPlantId"
-                    .Parameters.Add("@PlantId", SqlDbType.Int, ParameterDirection.Input).Value = PlantId
-                End With
-                DBAdapter.SelectCommand = DBCommand
-                Me.OpenConnection()
-                DBAdapter.SelectCommand.ExecuteReader()
-                Me.CloseConnection()
-                DBAdapter.Fill(myTable)
-                ClearCommand()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-                CloseConnection()
-                ClearCommand()
-            End Try
-            Return myTable
+            With Me.DBCommand
+                .CommandText = "spCustomersTableSelectByPlantId"
+                .Parameters.Clear()
+                .Parameters.Add("@PlantId", SqlDbType.Int, ParameterDirection.Input).Value = PlantId
+            End With
+            Return MyBase.FilterData()
         End Function
+
 
     End Class
 End Namespace

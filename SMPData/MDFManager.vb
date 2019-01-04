@@ -4,7 +4,7 @@ Imports SMPData
 Imports System.Data
 Imports System.Configuration
 Imports System.Data.SqlClient
-
+Imports SMPLibrary.SMPLibrary.Models
 
 Namespace SMPData
     Public Class MDFManager
@@ -121,6 +121,107 @@ Namespace SMPData
             End With
         End Sub
 
+        Protected Function FilterData() As DataTable
+            Dim myTable As New DataTable()
+
+            Try
+                DBAdapter.SelectCommand = DBCommand
+                Me.OpenConnection()
+                DBAdapter.SelectCommand.ExecuteReader()
+                Me.CloseConnection()
+                DBAdapter.Fill(myTable)
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+            Return myTable
+        End Function
+
+        Protected Function GetAllRecords() As DataTable
+            Dim myTable As New DataTable()
+
+            Try
+                DBAdapter.SelectCommand = DBCommand
+                Me.OpenConnection()
+                DBAdapter.SelectCommand.ExecuteReader()
+                Me.CloseConnection()
+                DBAdapter.Fill(myTable)
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+            Return myTable
+        End Function
+
+        Protected Function GetMaxIdNumber() As Integer
+            Dim maxId As Integer = 0
+
+            Try
+                Me.DBCommand.Parameters.Clear()
+                Me.DBCommand.Parameters.Add("@maxID", SqlDbType.Int)
+                Me.DBCommand.Parameters("@maxID").Direction = ParameterDirection.Output
+                Me.OpenConnection()
+                Me.DBCommand.ExecuteNonQuery()
+                maxId = Me.DBCommand.Parameters("@maxID").Value
+                Me.CloseConnection()
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+            Return maxId
+        End Function
+
+        Protected Function GetRecordsCount() As Integer
+            Dim RowsCount As Integer = 0
+
+            Try
+                Me.DBCommand.Parameters.Clear()
+                Me.DBCommand.Parameters.Add("@RowsCount", SqlDbType.Int)
+                Me.DBCommand.Parameters("@RowsCount").Direction = ParameterDirection.Output
+                Me.OpenConnection()
+                Me.DBCommand.ExecuteNonQuery()
+                RowsCount = Me.DBCommand.Parameters("@RowsCount").Value
+                Me.CloseConnection()
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+            Return RowsCount
+        End Function
+
+        Protected Sub UpdateRow()
+            Try
+                Me.OpenConnection()
+                DBCommand.ExecuteNonQuery()
+                Me.CloseConnection()
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+        End Sub
+
+        Protected Sub DeleteRow()
+            Try
+                Me.OpenConnection()
+                Me.DBCommand.ExecuteNonQuery()
+                Me.CloseConnection()
+                ClearCommand()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                CloseConnection()
+                ClearCommand()
+            End Try
+        End Sub
     End Class
 End Namespace
 
