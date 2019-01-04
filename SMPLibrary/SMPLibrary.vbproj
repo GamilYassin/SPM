@@ -86,7 +86,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums.vb" />
+    <Compile Include="Global Vars\Enums.vb" />
+    <Compile Include="Global Vars\GlobalVars.vb" />
     <Compile Include="Logger\DataLoger.vb" />
     <Compile Include="Models\CustomersModel.vb" />
     <Compile Include="Models\IModel.vb" />

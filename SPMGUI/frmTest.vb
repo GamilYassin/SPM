@@ -6,6 +6,7 @@ Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary.Models
 Imports SMPLibrary.SMPLibrary.DataLoger
 Imports SMPLibrary.SMPLibrary
+Imports SMPLibrary.GlobalVars
 
 Public Class frmTest
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -74,7 +75,7 @@ Public Class frmTest
         DataLoger.LogListBox(ListBox1, "Rows Count is: " & Counter.ToString)
         DataLoger.LogListBox(ListBox1, "Testing Fill Model Operation")
         Dim myCustomerModel As New CustomersModel
-        myCustomer.FillModel(myCustomerModel, 2)
+        myCustomer.FillModel(myCustomerModel, 3)
         DataLoger.LogListBox(ListBox1, "Result of model fit (eMail Id):  " & myCustomerModel.eMail)
         DataLoger.LogListBox(ListBox1, "Testing Insert New Row Model Operation")
         Counter = myCustomer.GetMaxId()
@@ -100,5 +101,9 @@ Public Class frmTest
         myTable = myCustomer.SelectCustomerByPlantId(12)
         DataLoger.LogListBox(ListBox1, "Return Rows Count is: " & myTable.Rows.Count.ToString)
         DataLoger.LogListBox(ListBox1, "End of the test", MessageType.EVENT_MESSAGE)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'DataLoger.LogListBox(ListBox1, SMPLibrary.SMPLibrary.GlobalVars.GlobalVars.CustPosFunctions)
     End Sub
 End Class

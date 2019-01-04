@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Namespace SMPLibrary.DataLoger
     Public Class DataLoger
 
-        Public Shared Function Log(Message As String, MessType As MessageType) As String
+        Protected Shared Function Log(Message As String, MessType As MessageType) As String
             Dim Result As String
             Dim Current As Date = Now()
 

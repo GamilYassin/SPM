@@ -25,6 +25,7 @@ Partial Class frmTest
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -62,6 +63,7 @@ Partial Class frmTest
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Button3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Button2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
         '
@@ -71,6 +73,17 @@ Partial Class frmTest
         Me.SplitContainer1.Size = New System.Drawing.Size(800, 450)
         Me.SplitContainer1.SplitterDistance = 266
         Me.SplitContainer1.TabIndex = 2
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Location = New System.Drawing.Point(3, 104)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(251, 40)
+        Me.Button3.TabIndex = 0
+        Me.Button3.Text = "Customers Testers"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -103,4 +116,5 @@ Partial Class frmTest
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

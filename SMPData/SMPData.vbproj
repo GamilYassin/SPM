@@ -104,6 +104,10 @@
     <Compile Include="Handlers\CustomersHandler.vb" />
     <Compile Include="Handlers\MilestonesHandler.vb" />
     <Compile Include="Handlers\OpportunitiesHandler.vb" />
+    <Compile Include="Handlers\PlantsHandler.vb" />
+    <Compile Include="Handlers\ProjectsHandler.vb" />
+    <Compile Include="Handlers\ProjectTeamHandler.vb" />
+    <Compile Include="Handlers\WBSHandler.vb" />
     <Compile Include="Interfaces\IDataBaseManager.vb" />
     <Compile Include="Interfaces\ITableHandler.vb" />
     <Compile Include="Handlers\JCEHandler.vb" />
