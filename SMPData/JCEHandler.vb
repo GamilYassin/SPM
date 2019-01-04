@@ -142,7 +142,7 @@ Namespace SMPData
             Throw New NotImplementedException()
         End Sub
 
-        Public Sub UpdateJCERow(RowId As Integer, obJceModel As JCEModel)
+        Public Sub UpdateOneRow(RowId As Integer, obJceModel As JCEModel)
             Try
                 ModelMapIn(obJceModel)
                 Me.DBCommand.CommandText = "spJCETableUpdateRow"

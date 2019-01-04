@@ -24,4 +24,13 @@ Namespace SMPLibrary
         PROJECTTEAMMODEL
         WBSMODEL
     End Enum
+
+    Public Enum MessageType As Integer
+        ERROR_MESSAGE
+        EVENT_MESSAGE
+        CRITICAL_MESSAGE
+        QUESTION_MESSAGE
+        EXCLAMATION_MESSAGE
+        INFORMATION_MESSAGE
+    End Enum
 End Namespace

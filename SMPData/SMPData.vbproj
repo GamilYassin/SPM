@@ -101,6 +101,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomersHandler.vb" />
     <Compile Include="IDataBaseManager.vb" />
     <Compile Include="ITableHandler.vb" />
     <Compile Include="JCEHandler.vb" />
