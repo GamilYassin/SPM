@@ -101,10 +101,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomersHandler.vb" />
-    <Compile Include="IDataBaseManager.vb" />
-    <Compile Include="ITableHandler.vb" />
-    <Compile Include="JCEHandler.vb" />
+    <Compile Include="Handlers\CustomersHandler.vb" />
+    <Compile Include="Interfaces\IDataBaseManager.vb" />
+    <Compile Include="Interfaces\ITableHandler.vb" />
+    <Compile Include="Handlers\JCEHandler.vb" />
     <Compile Include="MDFManager.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
