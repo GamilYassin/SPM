@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary
 Imports SMPData
 Imports SMPLibrary.SMPLibrary.Models
+Imports System.Windows.Forms
 
 Namespace SMPData
     Public Class OpportunitiesHandler
@@ -95,7 +96,7 @@ Namespace SMPData
                 .CommandText = "spOpportunitiesTableDeleteRow"
                 .Parameters.Clear()
                 .Parameters.Add("@id", SqlDbType.Int, ParameterDirection.Input).Value = RowId
-                End With
+            End With
             MyBase.DeleteRow()
         End Sub
 
@@ -207,5 +208,8 @@ Namespace SMPData
             Return MyBase.FilterData()
         End Function
 
+        Public Overloads Sub ITableHandler_FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable) Implements ITableHandler.FillDataGridView
+            MyBase.FillDataGridView(myDataGrid, myTable)
+        End Sub
     End Class
 End Namespace

@@ -1,5 +1,7 @@
 ﻿
 
+Imports System.Windows.Forms
+
 Public Interface ITableHandler
 
     '' Select Procedures
@@ -24,4 +26,5 @@ Public Interface ITableHandler
     Sub ModelMapIn()
     Sub ModelMapOut()
 
+    Sub FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable)
 End Interface

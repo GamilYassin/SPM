@@ -97,10 +97,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Explorer1.Designer.vb">
+      <DependentUpon>Explorer1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmOpportunitiesList.Designer.vb">
       <DependentUpon>frmOpportunitiesList.vb</DependentUpon>
     </Compile>
     <Compile Include="frmOpportunitiesList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectInfo.Designer.vb">
+      <DependentUpon>frmProjectInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProjectsList.Designer.vb">
@@ -144,8 +162,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Explorer1.resx">
+      <DependentUpon>Explorer1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOpportunitiesList.resx">
       <DependentUpon>frmOpportunitiesList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectInfo.resx">
+      <DependentUpon>frmProjectInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectsList.resx">
       <DependentUpon>frmProjectsList.vb</DependentUpon>

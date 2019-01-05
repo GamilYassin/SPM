@@ -4,6 +4,7 @@ Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary
 Imports SMPData
 Imports SMPLibrary.SMPLibrary.Models
+Imports System.Windows.Forms
 
 Namespace SMPData
     Public Class JCEHandler
@@ -87,7 +88,7 @@ Namespace SMPData
         Public Sub UpdateOneRow(RowId As Integer, obJceModel As JCEModel)
             ModelMapIn(obJceModel)
             Me.DBCommand.CommandText = "spJCETableUpdateRow"
-                MyBase.UpdateRow()
+            MyBase.UpdateRow()
         End Sub
 
         Public Sub DeleteOneRow(RowId As Integer) Implements ITableHandler.DeleteOneRow
@@ -154,6 +155,9 @@ Namespace SMPData
             Return MyBase.FilterData()
         End Function
 
+        Public Overloads Sub FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable) Implements ITableHandler.FillDataGridView
+            MyBase.FillDataGridView(myDataGrid, myTable)
+        End Sub
     End Class
 End Namespace
 

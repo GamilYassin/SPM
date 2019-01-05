@@ -5,6 +5,7 @@ Imports System.Data
 Imports System.Configuration
 Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary.Models
+Imports System.Windows.Forms
 
 Namespace SMPData
     Public Class MDFManager
@@ -221,6 +222,13 @@ Namespace SMPData
                 CloseConnection()
                 ClearCommand()
             End Try
+        End Sub
+
+        Public Overloads Sub FillDataGridView(ByRef myDataGridViewer As DataGridView, myTable As DataTable)
+            'myDataGridViewer.Rows.Clear()
+            'myDataGridViewer.Columns.Clear()
+
+            myDataGridViewer.DataSource = myTable
         End Sub
     End Class
 End Namespace

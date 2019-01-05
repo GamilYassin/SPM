@@ -4,6 +4,7 @@ Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary
 Imports SMPData
 Imports SMPLibrary.SMPLibrary.Models
+Imports System.Windows.Forms
 
 Namespace SMPData
     Public Class CustomersHandler
@@ -159,7 +160,9 @@ Namespace SMPData
             Return MyBase.FilterData()
         End Function
 
-
+        Private Overloads Sub ITableHandler_FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable) Implements ITableHandler.FillDataGridView
+            MyBase.FillDataGridView(myDataGrid, myTable)
+        End Sub
     End Class
 End Namespace
 
