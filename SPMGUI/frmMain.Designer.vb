@@ -26,6 +26,7 @@ Partial Class frmMain
         Me.mnuProjects = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuProjectsOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuProjectsAdd = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BaselineAProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,7 +42,7 @@ Partial Class frmMain
         '
         'mnuProjects
         '
-        Me.mnuProjects.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuProjectsOpen, Me.mnuProjectsAdd})
+        Me.mnuProjects.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuProjectsOpen, Me.mnuProjectsAdd, Me.BaselineAProjectToolStripMenuItem})
         Me.mnuProjects.Name = "mnuProjects"
         Me.mnuProjects.Size = New System.Drawing.Size(73, 24)
         Me.mnuProjects.Text = "Projects"
@@ -57,6 +58,12 @@ Partial Class frmMain
         Me.mnuProjectsAdd.Name = "mnuProjectsAdd"
         Me.mnuProjectsAdd.Size = New System.Drawing.Size(216, 26)
         Me.mnuProjectsAdd.Text = "Add New Project"
+        '
+        'BaselineAProjectToolStripMenuItem
+        '
+        Me.BaselineAProjectToolStripMenuItem.Name = "BaselineAProjectToolStripMenuItem"
+        Me.BaselineAProjectToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+        Me.BaselineAProjectToolStripMenuItem.Text = "Baseline a Project"
         '
         'frmMain
         '
@@ -81,4 +88,5 @@ Partial Class frmMain
     Friend WithEvents mnuProjects As ToolStripMenuItem
     Friend WithEvents mnuProjectsOpen As ToolStripMenuItem
     Friend WithEvents mnuProjectsAdd As ToolStripMenuItem
+    Friend WithEvents BaselineAProjectToolStripMenuItem As ToolStripMenuItem
 End Class

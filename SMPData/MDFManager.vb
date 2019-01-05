@@ -224,7 +224,24 @@ Namespace SMPData
             End Try
         End Sub
 
-        Public Overloads Sub FillDataGridView(ByRef myDataGridViewer As DataGridView, myTable As DataTable)
+        Protected Sub FillComboBox(ByRef myComboBox As ComboBox)
+            Dim myTable As DataTable = FilterData()
+            myComboBox.Items.Clear()
+            For Each Row As DataRow In myTable.Rows
+                myComboBox.Items.Add(Row.Item(0))
+            Next
+        End Sub
+
+        Protected Function FillList() As List(Of String)
+            Dim myTable As DataTable = FilterData()
+            Dim myList As New List(Of String)
+            For Each Row As DataRow In myTable.Rows
+                myList.Add(Row.Item(0))
+            Next
+            Return myList
+        End Function
+
+        Protected Overloads Sub FillDataGridView(ByRef myDataGridViewer As DataGridView, myTable As DataTable)
             'myDataGridViewer.Rows.Clear()
             'myDataGridViewer.Columns.Clear()
 

@@ -109,6 +109,12 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmNewProject.Designer.vb">
+      <DependentUpon>frmNewProject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewProject.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmOpportunitiesList.Designer.vb">
       <DependentUpon>frmOpportunitiesList.vb</DependentUpon>
     </Compile>
@@ -125,6 +131,12 @@
       <DependentUpon>frmProjectsList.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProjectsList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTest.Designer.vb">
@@ -168,6 +180,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNewProject.resx">
+      <DependentUpon>frmNewProject.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOpportunitiesList.resx">
       <DependentUpon>frmOpportunitiesList.vb</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectsList.resx">
       <DependentUpon>frmProjectsList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.vb</DependentUpon>

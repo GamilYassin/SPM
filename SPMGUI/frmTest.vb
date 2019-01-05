@@ -6,7 +6,7 @@ Imports System.Data.SqlClient
 Imports SMPLibrary.SMPLibrary.Models
 Imports SMPLibrary.SMPLibrary.DataLoger
 Imports SMPLibrary.SMPLibrary
-Imports SMPLibrary.GlobalVars
+'Imports SMPLibrary.GlobalVars
 
 Public Class frmTest
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

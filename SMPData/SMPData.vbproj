@@ -103,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\CustomersHandler.vb" />
+    <Compile Include="Interfaces\IListHandler.vb" />
+    <Compile Include="Handlers\ListHandler.vb" />
     <Compile Include="Handlers\MilestonesHandler.vb" />
     <Compile Include="Handlers\OpportunitiesHandler.vb" />
     <Compile Include="Handlers\PlantsHandler.vb" />

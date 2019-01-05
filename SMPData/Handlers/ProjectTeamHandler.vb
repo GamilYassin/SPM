@@ -199,6 +199,81 @@ Namespace SMPData
         Public Overloads Sub ITableHandler_FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable) Implements ITableHandler.FillDataGridView
             MyBase.FillDataGridView(myDataGrid, myTable)
         End Sub
+
+
+        Public Sub FillComboBoxSMs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableSMs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxComOps(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableComOps"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxPMs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTablePMs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxHMIEngs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableHMIEngrs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxPEs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTablePEs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxControlPEs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableControlsEngrs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxElectPEs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableElectricalEngrs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxMechPEs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableMechanicalEngrs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxDCSPEs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectTeamTableDCSEngrs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+
     End Class
 End Namespace
 

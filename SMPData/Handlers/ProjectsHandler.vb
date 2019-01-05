@@ -209,6 +209,22 @@ Namespace SMPData
         Public Overloads Sub ITableHandler_FillDataGridView(ByRef myDataGrid As DataGridView, myTable As DataTable) Implements ITableHandler.FillDataGridView
             MyBase.FillDataGridView(myDataGrid, myTable)
         End Sub
+
+        Public Sub FillComboBoxEPCs(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectsTableEPCs"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
+
+        Public Sub FillComboBoxSubCons(ByRef myComboBox As ComboBox)
+            With Me.DBCommand
+                .CommandText = "spProjectsTableSubCons"
+                .Parameters.Clear()
+            End With
+            MyBase.FillComboBox(myComboBox)
+        End Sub
     End Class
 End Namespace
 
