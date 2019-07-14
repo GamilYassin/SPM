@@ -1,0 +1,63 @@
+﻿Private Function Text_To_DataTable(ByVal path As String, ByVal delimitter As Char, ByVal header As Boolean) As DataTable
+    Dim source As String = String.Empty
+    Dim dt As DataTable = New DataTable
+
+    If IO.File.Exists(path) Then
+        source = IO.File.ReadAllText(path)
+    Else
+        Throw New IO.FileNotFoundException("Could not find the file at " & path, path)
+    End If
+
+    Dim rows() As String = source.Split({Environment.NewLine}, StringSplitOptions.None)
+
+    For i As Integer = 0 To rows(0).Split(delimitter).Length - 1
+        Dim column As String = rows(0).Split(delimitter)(i)
+        dt.Columns.Add(If(header, column, "column" & i + 1))
+    Next
+
+    For i As Integer = If(header, 1, 0) To rows.Length - 1
+        Dim dr As DataRow = dt.NewRow
+
+        For x As Integer = 0 To rows(i).Split(delimitter).Length - 1
+            If x <= dt.Columns.Count - 1 Then
+                dr(x) = rows(i).Split(delimitter)(x)
+            Else
+                Throw New Exception("The number of columns on row " & i + If(header, 0, 1) & " is greater than the amount of columns in the " & If(header, "header.", "first row."))
+            End If
+        Next
+
+        dt.Rows.Add(dr)
+    Next
+
+    Return dt
+End Function
+
+
+
+Private Sub DataTable_To_Text(ByVal table As DataTable, ByVal path As String, ByVal header As Boolean, ByVal delimiter As Char)
+    If table.Columns.Count < 0 OrElse table.Rows.Count < 0 Then
+        Exit Sub
+    End If
+
+    Using sw As IO.StreamWriter = New IO.StreamWriter(path)
+        If header Then
+            For i As Integer = 0 To table.Columns.Count - 2
+                sw.Write(table.Columns(i).ColumnName & delimiter)
+            Next
+            sw.Write(table.Columns(table.Columns.Count - 1).ColumnName & Environment.NewLine)
+        End If
+
+        For row As Integer = 0 To table.Rows.Count - 2
+            For col As Integer = 0 To table.Columns.Count - 2
+                sw.Write(table.Rows(row).Item(col).ToString & delimiter)
+            Next
+            sw.Write(table.Rows(row).Item(table.Columns.Count - 1).ToString & Environment.NewLine)
+        Next
+
+        For col As Integer = 0 To table.Columns.Count - 2
+            sw.Write(table.Rows(table.Rows.Count - 1).Item(col).ToString & delimiter)
+        Next
+        sw.Write(table.Rows(table.Rows.Count - 1).Item(table.Columns.Count - 1).ToString)
+    End Using
+
+End Sub
