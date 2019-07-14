@@ -41,9 +41,10 @@ Partial Class MainForm
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(68, 155)
+        Me.Label1.Location = New System.Drawing.Point(51, 126)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 28)
+        Me.Label1.Size = New System.Drawing.Size(65, 21)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Projects"
         '
@@ -52,9 +53,10 @@ Partial Class MainForm
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(157, 155)
+        Me.Label2.Location = New System.Drawing.Point(118, 126)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(134, 28)
+        Me.Label2.Size = New System.Drawing.Size(106, 21)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Opportunities"
         '
@@ -63,9 +65,10 @@ Partial Class MainForm
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(310, 155)
+        Me.Label3.Location = New System.Drawing.Point(232, 126)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(85, 28)
+        Me.Label3.Size = New System.Drawing.Size(68, 21)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Forecast"
         '
@@ -74,18 +77,20 @@ Partial Class MainForm
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(413, 155)
+        Me.Label4.Location = New System.Drawing.Point(310, 126)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(116, 28)
+        Me.Label4.Size = New System.Drawing.Size(93, 21)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "Dashboards"
         '
         'PictureBox4
         '
         Me.PictureBox4.Image = Global.SPMGUI.My.Resources.Resource1.projects
-        Me.PictureBox4.Location = New System.Drawing.Point(413, 42)
+        Me.PictureBox4.Location = New System.Drawing.Point(310, 34)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(115, 110)
+        Me.PictureBox4.Size = New System.Drawing.Size(86, 89)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox4.TabIndex = 1
         Me.PictureBox4.TabStop = False
@@ -93,9 +98,10 @@ Partial Class MainForm
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.SPMGUI.My.Resources.Resource1.projects
-        Me.PictureBox3.Location = New System.Drawing.Point(292, 42)
+        Me.PictureBox3.Location = New System.Drawing.Point(219, 34)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(115, 110)
+        Me.PictureBox3.Size = New System.Drawing.Size(86, 89)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 1
         Me.PictureBox3.TabStop = False
@@ -103,9 +109,10 @@ Partial Class MainForm
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.SPMGUI.My.Resources.Resource1.projects
-        Me.PictureBox2.Location = New System.Drawing.Point(171, 42)
+        Me.PictureBox2.Location = New System.Drawing.Point(128, 34)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(115, 110)
+        Me.PictureBox2.Size = New System.Drawing.Size(86, 89)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
@@ -113,19 +120,20 @@ Partial Class MainForm
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SPMGUI.My.Resources.Resource1.projects
-        Me.PictureBox1.Location = New System.Drawing.Point(50, 42)
+        Me.PictureBox1.Location = New System.Drawing.Point(38, 34)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(115, 110)
+        Me.PictureBox1.Size = New System.Drawing.Size(86, 89)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
         'MainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1240, 511)
+        Me.ClientSize = New System.Drawing.Size(930, 415)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -135,6 +143,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.IsMdiContainer = True
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "MainForm"
         Me.Text = "Form1"
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
