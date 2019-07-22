@@ -86,6 +86,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB Operations\DataBaseOperations.vb" />
     <Compile Include="Global Vars\Enums.vb" />
     <Compile Include="Global Vars\GlobalVars.vb" />
     <Compile Include="Logger\DataLoger.vb" />
@@ -95,8 +96,9 @@
     <Compile Include="Models\MilestonesModel.vb" />
     <Compile Include="Models\OpportunitiesModel.vb" />
     <Compile Include="Models\PlantsModel.vb" />
-    <Compile Include="Models\ProjectsModel.vb" />
+    <Compile Include="Models\ProjectModel.vb" />
     <Compile Include="Models\ProjectTeamModel.vb" />
+    <Compile Include="Models\TableHandler.vb" />
     <Compile Include="Models\WBSModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
