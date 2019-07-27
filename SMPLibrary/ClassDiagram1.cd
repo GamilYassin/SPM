@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SMPLibrary.DataBaseOperations">
+    <Position X="3.75" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAgAAA=</HashCode>
+      <FileName>DB Operations\DataBaseOperations.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMPLibrary.SMPLibrary.Models.TableHandler">
+    <Position X="9" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACQAgEAAAAAAAAAEAAAAAAQAAAEAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Models\TableHandler.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMPLibrary.SMPLibrary.Models.ProjectModel">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAiEAAAAAElACAEAAAACAAAAAAAAAIAAAAAAAgA=</HashCode>
+      <FileName>Models\ProjectModel.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SMPLibrary.SMPLibrary.Models.ProjectTable">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAgEAQAAAAEAAAIAAAAAAAAAEAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\ProjectModel.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

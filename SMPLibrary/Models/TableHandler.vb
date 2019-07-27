@@ -1,7 +1,7 @@
 ﻿
 
 Namespace SMPLibrary.Models
-    Public MustInherit Class TableHandler
+    Public Class TableHandler
 
         Public Name As String
 
